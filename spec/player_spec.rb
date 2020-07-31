@@ -1,34 +1,27 @@
-require 'rspec'
-require '../lib/player'
+require_relative '../lib/player.rb'
+require_relative '../lib/score'
 
-RSpec.describe Player do
-  before do
-    subject.players.push('Ali')
-    subject.players.push('Alex')
-  end
-  context 'when first created' do
-    it 'should be instance of player class' do
-      expect(subject).to be_instance_of Player
-    end
+describe Player do
+  let(:player){Player.new}
+  let(:player_array){player.players=['Alex','Peris']}
 
-    it 'should have a :players array' do
-      expect(subject.players).to be_a_kind_of Array
+    context 'this checks if subject is an instance of players' do
+      it 'checks if it creates an instance of a class' do
+        expect(player).to be_instance_of Player
+      end
+      it 'checks if the player is an array' do
+        expect(player_array).to match Array
+      end   
+      it 'returns the index of the next player in the array' do
+        expect(player.next_player).to eql(0)
+      end          
     end
-
-    it 'next_player should return 0' do
-      expect(subject.next_player).to eql(0)
-    end
-  end
-
-  context '#icon' do
-    it 'should return an icon from * sign to #' do
-      expect { subject.next_player }.to change { subject.icon }.from('#').to('*')
-    end
-  end
-
-  context '#current_player' do
-    it 'shoul switch the player' do
-      expect { subject.next_player }.to change { subject.current_player }.from('Alex').to('Ali')
-    end
-  end
+    context 'this returns the icons of the players' do
+      it 'returns the index of the next player in the array' do
+        expect(player.icon).to eq('#')
+      end
+      it 'switches from one player to the next' do
+        expect(player.next_player).to change(player.current_player).from('Alex').to('Peris')
+      end
+    end   
 end
