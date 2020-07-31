@@ -1,5 +1,5 @@
 require_relative '../lib/player.rb'
-
+require_relative '../lib/score'
 
 describe Player do
   let(:player){Player.new}
@@ -22,7 +22,7 @@ describe Player do
       end
     context 'this tests the switch method'do
       it 'switches from one player to the next' do
-        expect{player.next_player}.to change{player_array<<('Alex')}.to(player_array<<('Peris'))
+        expect{player.next_player}.to change{player_array<<('')}.to(player_array<<('Peris'))
       end
     end
     end   

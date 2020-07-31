@@ -12,10 +12,10 @@ describe Score do
     end
   end
   context 'when the board method is called' do
-    it 'should display the board' do
+    it 'should update the board' do
       expect(new_score.get_position(board,2)).to eql([0,1])
     end
-  end
+   end
   context 'check for winnings' do
     it 'should check for vertical winner' do
       expect(new_score.check_winner([[1, '#', 3], [4, '#', 6], [7,'#', 9]], [2, 1])).to eql(true)    
