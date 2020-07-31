@@ -8,6 +8,7 @@
 
 - Ruby v2.7
 - rubocop for linting purpose
+- Rspec
 
 ## Live Demo
 
