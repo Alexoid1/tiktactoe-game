@@ -17,8 +17,21 @@ describe Score do
     end
   end
   context 'check for winnings' do
-    it 'should check for diagonal winner' do
-      expect(new_score.check_winner([[1, '#', 3], [4, '#', 6], [7,'#', 9]], [2,1])).to eql(true)    
+    it 'should check for vertical winner' do
+      expect(new_score.check_winner([[1, '#', 3], [4, '#', 6], [7,'#', 9]], [2, 1])).to eql(true)    
     end
+    it 'should check for diagonal winner' do
+      expect(new_score.check_winner([['#', '#', 3], [4, '#', 6], [7,'#', 9]], [0, 2])).to eql(true)    
+    end
+    it 'should check for diagonal winner' do
+        expect(new_score.check_winner([['#', 2, 3], [4, '#', 6], [7, 8, 9]], [2, 2])).to eql(true)    
+      end
   end
+  context 'check for draw' do
+    it 'should check true to draw' do
+        expect(new_score.draw([['#', '*', '#'], ['*', '#', '*'], ['#', '*', '#']])).to eql(true)  
+    end   
+  end  
+  
+    
 end
