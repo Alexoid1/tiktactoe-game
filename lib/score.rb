@@ -33,6 +33,7 @@ class Score
 
     false
   end
+  
 
   def draw(board)
     return true if board.flatten.count { |item| item == '#' } > 4
