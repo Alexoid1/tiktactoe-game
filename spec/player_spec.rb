@@ -1,5 +1,5 @@
 require_relative '../lib/player.rb'
-require_relative '../lib/score'
+
 
 describe Player do
   let(:player){Player.new}
